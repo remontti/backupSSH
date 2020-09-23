@@ -19,10 +19,10 @@ else
   if [  "$COMPAC" = "zip" ]
   then
       ARQUIVO="/tmp/${DATA_HORA}.$1.zip"
-      zip ${ARQUIVO} $5 &>/dev/null
+      zip ${ARQUIVO} $2 &>/dev/null
   else
       ARQUIVO="/tmp/${DATA_HORA}.$1.tar.gz"
-      tar -czpf ${ARQUIVO} $5 &>/dev/null
+      tar -czpf ${ARQUIVO} $2 &>/dev/null
   fi
   sshpass -p "$4" scp -o StrictHostKeyChecking=no -P $6 ${ARQUIVO} $3@$5:$7 &>/dev/null
   rm ${ARQUIVO}
